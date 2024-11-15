@@ -1,0 +1,100 @@
+Parte 1: Exploración y Gestión de Procesos
+
+1. Ventajas y Desventajas de Síncrono vs Asíncrono
+
+Síncrono:
+Ventajas: Es fácil de entender y programar, porque el programa sigue un orden lógico.
+Desventajas: Si un proceso tarda mucho en responder, todo el programa se queda bloqueado esperando.
+
+Asíncrono:
+Ventajas: Permite que el programa siga trabajando mientras espera la respuesta de un proceso.
+Desventajas: Es más complicado de programar y puede ser más difícil de depurar si algo sale mal.
+
+2. ¿Por qué es importante manejar excepciones?
+
+Porque no todos los procesos se pueden inspeccionar o terminar. Por ejemplo:
+Algunos procesos están protegidos y no podemos ver su información o pararlos.
+Un proceso puede desaparecer antes de que el programa lo gestione.
+Si no manejamos estas situaciones, el programa puede fallar. Con excepciones, evitamos estos problemas y damos mensajes claros al usuario.
+
+3. Problemas en comunicación y soluciones
+
+Problema: Algunos procesos están bloqueados o no podemos acceder a ellos.
+Solución: Filtrar solo los procesos que podemos manejar y capturar errores como "Acceso denegado".
+
+--------------------------------------------------
+
+Parte 2: Comunicación Interprocesos con Pipes
+
+1. Ventajas y Desventajas de Síncrono vs Asíncrono
+
+Síncrono:
+Ventajas: Es más fácil coordinar la comunicación porque todo ocurre en orden.
+Desventajas: El programa principal se detiene mientras espera que el otro proceso termine.
+
+Asíncrono:
+Ventajas: Los procesos pueden trabajar al mismo tiempo, lo que hace que el programa sea más rápido.
+Desventajas: Hace falta más cuidado para asegurarse de que los datos se envían y reciben correctamente.
+
+2. ¿Por qué es importante manejar excepciones?
+
+Durante la comunicación, pueden pasar cosas como:
+Que el otro proceso termine antes de responder. Esto puede romper el canal de comunicación.
+Que la respuesta tarde demasiado. Esto puede hacer que el programa parezca lento.
+Las excepciones permiten manejar estos casos sin que el programa se rompa.
+
+3. Problemas en comunicación y soluciones
+
+Problema: El mensaje que se envía o recibe puede estar incompleto o no ser válido.
+Solución: Usar protocolos claros para asegurarse de que los mensajes son correctos y manejar errores al recibir datos.
+
+-----------------------------------------------------
+
+Parte 3: Ejecución de Programas Síncrona y Asíncrona
+
+1. Ventajas y Desventajas de Síncrono vs Asíncrono
+
+Síncrono:
+Ventajas: Es más fácil de implementar porque el programa espera hasta que el otro programa termine.
+Desventajas: Si el otro programa tarda mucho en ejecutarse, el programa principal se bloquea.
+
+Asíncrono:
+Ventajas: El programa principal puede seguir haciendo otras cosas mientras espera.
+Desventajas: Necesita más código para manejar lo que pasa cuando el otro programa termina.
+
+2. ¿Por qué es importante manejar excepciones?
+
+Puede pasar que:
+El programa que intentamos abrir no exista.
+No tengamos permisos para ejecutarlo.
+Si no controlamos estas situaciones, el programa fallará. Con excepciones, podemos mostrar un mensaje útil y evitar problemas.
+
+3. Problemas en comunicación y soluciones
+Problema: Puede ser difícil saber cuándo el programa externo ha terminado.
+Solución: Usar métodos como wait() para asegurarnos de que el programa principal espera solo cuando es necesario.
+
+--------------------------------------------------------
+
+Parte 4: Transferencia de Datos y Manipulación del Portapapeles
+
+1. Ventajas y Desventajas de Síncrono vs Asíncrono
+
+Síncrono:
+Ventajas: Es más fácil verificar el estado del portapapeles y hacer algo cuando cambia.
+Desventajas: Si se revisa con mucha frecuencia, puede hacer que el programa sea más lento.
+
+Asíncrono:
+Ventajas: Permite que el programa haga otras cosas mientras revisa el portapapeles.
+Desventajas: Requiere más código y es más difícil de programar.
+
+2. ¿Por qué es importante manejar excepciones?
+
+Al trabajar con FTP y el portapapeles, pueden pasar cosas como:
+Fallo en la conexión al servidor FTP, por un error de red o credenciales.
+Problemas al leer o escribir en el portapapeles, si está siendo usado por otro programa.
+Con excepciones, podemos controlar estos fallos y evitar que el programa deje de funcionar.
+
+3. Problemas en comunicación y soluciones
+
+Problema: El contenido del portapapeles puede cambiar por otros programas, lo que podría causar inconsistencias.
+Solución: Revisar periódicamente el portapapeles y solo actuar si detectamos un cambio
